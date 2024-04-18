@@ -4,16 +4,16 @@ namespace Controllers\Sec;
 
 use Controllers\PublicController;
 use \Utilities\Validators;
-use Exception;
+use Controllers\Sec\Error;
 
 class Register extends PublicController
 {
     private $txtEmail = "";
     private $txtPswd = "";
-    private $errorEmail ="";
+    private $errorEmail = "";
     private $errorPswd = "";
     private $hasErrors = false;
-    public function run() :void
+    public function run(): void
     {
 
         if ($this->isPostBack()) {
@@ -30,11 +30,11 @@ class Register extends PublicController
             }
 
             if (!$this->hasErrors) {
-                try{
+                try {
                     if (\Dao\Security\Security::newUsuario($this->txtEmail, $this->txtPswd)) {
                         \Utilities\Site::redirectToWithMsg("index.php?page=sec_login", "¡Usuario Registrado Satisfactoriamente!");
                     }
-                } catch (Error $ex){
+                } catch (Error $ex) {
                     die($ex);
                 }
             }
@@ -43,4 +43,3 @@ class Register extends PublicController
         \Views\Renderer::render("security/sigin", $viewData);
     }
 }
-?>

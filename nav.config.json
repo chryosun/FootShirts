@@ -18,7 +18,7 @@
     {
       "id": "Menu_LaLiga",
       "nav_url": "index.php?page=Products_ProductsLeague&nombreLiga=Laliga",
-      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Productos de LaLiga"
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Productos de La Liga"
     },
     {
       "id": "Menu_PremierLeague",

@@ -1,3 +1,4 @@
+-- Active: 1713382220716@@193.203.166.107@3306@u966946366_footshirts
 CREATE TABLE
     `usuario` (
         `usercod` bigint(10) NOT NULL AUTO_INCREMENT,
