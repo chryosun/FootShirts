@@ -9,6 +9,10 @@ class Validators {
         return preg_match("/^\s*$/", $valor) && true;
     }
 
+    static public function IsValidUser($valor)
+{
+    return !preg_match("/^\s*$/", $valor);
+}
     static public function IsValidEmail($valor)
     {
         return preg_match("/^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/", $valor) && true;

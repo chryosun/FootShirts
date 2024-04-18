@@ -47,8 +47,11 @@ class Security extends \Dao\Table
         return self::obtenerRegistros($sqlstr, array());
     }
 
-    static public function newUsuario($email, $password)
+    static public function newUsuario($user, $email, $password)
     {
+        if (!\Utilities\Validators::IsValidUser($user)) {
+            throw new Exception("Usuario no es válido");
+        }
         if (!\Utilities\Validators::IsValidEmail($email)) {
             throw new Exception("Correo no es válido");
         }
@@ -57,7 +60,7 @@ class Security extends \Dao\Table
         }
 
         $newUser = self::_usuarioStruct();
-        //Tratamiento de la Contraseña
+        // Tratamiento de la Contraseña
         $hashedPassword = self::_hashPassword($password);
 
         unset($newUser["usercod"]);
@@ -65,7 +68,7 @@ class Security extends \Dao\Table
         unset($newUser["userpswdchg"]);
 
         $newUser["useremail"] = $email;
-        $newUser["username"] = "John Doe";
+        $newUser["username"] = $user;
         $newUser["userpswd"] = $hashedPassword;
         $newUser["userpswdest"] = Estados::ACTIVO;
         $newUser["userpswdexp"] = date('Y-m-d', time() + 7776000);  //(3*30*24*60*60) (m d h mi s)
@@ -81,10 +84,12 @@ class Security extends \Dao\Table
             now(), :userpswdest, :userpswdexp, :userest, :useractcod,
             now(), :usertipo);";
 
-        return self::executeNonQuery($sqlIns, $newUser);
+        self::executeNonQuery($sqlIns, $newUser);
+
+        
+
 
     }
-
     static public function getUsuarioByEmail($email)
     {
         $sqlstr = "SELECT * from `usuario` where `useremail` = :useremail ;";
@@ -246,10 +251,20 @@ class Security extends \Dao\Table
     {
         
     }
-    static public function getUnAssignedRoles($userCod)
+    static public function getUnAssignedRoles()
     {
+        $sqlLastUserId = "SELECT MAX(usercod) AS last_usercod FROM usuario";
+    $lastUserId = self::obtenerRegistros($sqlLastUserId, []);
+        // Insertar el rol del usuario en la tabla roles_usuarios
+        $sqlInsRole = "INSERT INTO `roles_usuarios`(`usercod`, `rolescod`, `roleuserest`, `roleuserfch`, `roleuserexp`)
+            VALUES (:usercod, 'CLIENT', 'ACT', NOW(), NOW());";
+        $roleData = array(
+            'usercod' => $lastUserId
+        );
+    
+        self::executeNonQuery($sqlInsRole, $roleData);
+    }   
 
-    }
     private function __construct()
     {
     }
