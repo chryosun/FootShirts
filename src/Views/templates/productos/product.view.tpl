@@ -19,6 +19,10 @@ button {
   color: #fff;
   cursor: pointer;
 }
+form {
+  display: flex;
+  gap: 20px
+}
 </style>
 <section>
   <div class="image">
@@ -28,6 +32,12 @@ button {
     <h2>{{nombreProducto}}</h2>
     <p>L. {{precioProducto}}.00</p>
     <p>Categoria: {{nombreLiga}}</p>
-    <button>Agregar al Carrito</button>
+    <p>Existencias en Stock: {{existenciasProducto}}</p>
+    <form action="index.php?page=Products_Product&idProducto={{idProducto}}" method="post">
+      <input type="hidden" name="idProducto" value="{{idProducto}}">
+      <label>Cantidad deseada: </label>
+      <input type="number" name="cantidad" value="1" max="{{existenciasProducto}}" style="width:70px">
+      <button type="submit" name="addToCart">Agregar al Carrito</button>
+    </form>
   </div>
 </section>

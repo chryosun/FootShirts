@@ -34,6 +34,11 @@
       "id": "Menu_Otros",
       "nav_url": "index.php?page=Products_ProductsLeague&nombreLiga=Otros",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Productos de Otra Liga"
+    },
+    {
+      "id": "Menu_Carrito",
+      "nav_url": "index.php?page=Carrito_Carritolist",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Carrito"
     }
   ],
   "private": [

@@ -14,7 +14,7 @@ class Producto extends Table
 
     public static function getProduct($idProducto)
     {
-        $sqlstr = "SELECT p.idProducto, p.nombreProducto, p.precioProducto, e.nombreEquipo, l.nombreLiga 
+        $sqlstr = "SELECT * 
         FROM productos p 
         INNER JOIN equipos e ON p.idEquipo = e.idEquipo 
         INNER JOIN ligas l ON e.idLiga = l.idLiga  WHERE idProducto = :idProducto;";
