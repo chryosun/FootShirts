@@ -9,6 +9,31 @@
       "id": "Menu_SignUp",
       "nav_url": "index.php?page=Sec_Register",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Crear Cuenta"
+    },
+    {
+      "id": "Menu_Productos",
+      "nav_url": "index.php?page=Products_Products",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Todos los Productos"
+    },
+    {
+      "id": "Menu_LaLiga",
+      "nav_url": "index.php?page=Products_ProductsLeague&nombreLiga=Laliga",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Productos de LaLiga"
+    },
+    {
+      "id": "Menu_PremierLeague",
+      "nav_url": "index.php?page=Products_ProductsLeague&nombreLiga=PremierLeague",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Productos de Premier League"
+    },
+    {
+      "id": "Menu_SerieA",
+      "nav_url": "index.php?page=Products_ProductsLeague&nombreLiga=SerieA",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Productos de SerieA"
+    },
+    {
+      "id": "Menu_Otros",
+      "nav_url": "index.php?page=Products_ProductsLeague&nombreLiga=Otros",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Productos de Otra Liga"
     }
   ],
   "private": [

@@ -3,6 +3,7 @@
   grid-template-columns: repeat(4, 1fr); /* Crea 5 columnas de igual ancho */
   gap: 15px;">
     {{foreach productos}}
+    <a href="index.php?page=Products_Product&idProducto={{idProducto}}"> 
     <div class="product-card" style="border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -19,5 +20,6 @@
   color: #007bff; ">{{precioProducto}}</p>
         </div>
     </div>
+    </a>
     {{endfor productos}}
 </section>
