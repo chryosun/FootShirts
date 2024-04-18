@@ -16,7 +16,7 @@
         <div class="product-details" style="padding: 20px;">
             <h3 class="product-name" style="font-size: 18px;  margin-bottom: 10px;">{{nombreProducto}}</h3>
             <p class="product-price" style="font-size: 16px;
-  color: #007bff; ">{{precioProducto}}</p>
+  color: #007bff; ">L. {{precioProducto}}.00</p>
         </div>
     </div>
     </a>
