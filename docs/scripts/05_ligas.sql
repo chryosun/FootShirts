@@ -1,0 +1,6 @@
+-- Active: 1713382220716@@193.203.166.107@3306@u966946366_footshirts
+CREATE TABLE `ligas` (
+  `idLiga` int(11) NOT NULL AUTO_INCREMENT,
+  `nombreLiga` varchar(45) NOT NULL,
+  PRIMARY KEY (`idLiga`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
